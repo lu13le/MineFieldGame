@@ -62,14 +62,14 @@ namespace MineFieldGame.Models
             }
         }
 
-        private void ProcessPlayerMove()
+        public void ProcessPlayerMove()
         {
             if (!Field.IsMineHit()) return;
             Player.LoseLife();
             Console.WriteLine("Boom! You hit a mine.");
         }
 
-        private bool IsGameOver() =>
+        public bool IsGameOver() =>
             Field.HasPlayerReachedEnd() || Player.Lives <= 0;
 
         private void EndGame()

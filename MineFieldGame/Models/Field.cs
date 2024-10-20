@@ -17,7 +17,7 @@ namespace MineFieldGame.Models
 
         public int Width { get; }
         public int Height { get; }
-        private bool[,] Mines { get; }
+        public bool[,] Mines { get; }
         public (int X, int Y) PlayerPosition { get; set; }
 
         public void MovePlayerUp() => PlayerPosition = (PlayerPosition.X, Math.Max(0, PlayerPosition.Y - 1));
@@ -60,7 +60,7 @@ namespace MineFieldGame.Models
                 {
                     x = rand.Next(Width);
                     y = rand.Next(Height);
-                } while (Mines[x, y]);
+                } while (Mines[x, y] || (x == 0 && y == 0));
 
                 Mines[x, y] = true;
             }
