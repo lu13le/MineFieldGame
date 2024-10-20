@@ -15,10 +15,10 @@ namespace MineFieldGame.Models
             PlaceMines(numberOfMines);
         }
 
-        private int Width { get; }
-        private int Height { get; }
+        public int Width { get; }
+        public int Height { get; }
         private bool[,] Mines { get; }
-        private (int X, int Y) PlayerPosition { get; set; }
+        public (int X, int Y) PlayerPosition { get; set; }
 
         public void MovePlayerUp() => PlayerPosition = (PlayerPosition.X, Math.Max(0, PlayerPosition.Y - 1));
         public void MovePlayerDown() => PlayerPosition = (PlayerPosition.X, Math.Min(Height - 1, PlayerPosition.Y + 1));
@@ -50,7 +50,7 @@ namespace MineFieldGame.Models
             _ => throw new ArgumentOutOfRangeException(nameof(difficulty), "Invalid difficulty level.")
         };
 
-        private void PlaceMines(int mineCount)
+        public void PlaceMines(int mineCount)
         {
             var rand = new Random();
             for (var i = 0; i < mineCount; i++)
