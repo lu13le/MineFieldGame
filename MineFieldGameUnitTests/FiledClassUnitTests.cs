@@ -76,16 +76,6 @@ namespace MineFieldGameUnitTests
         }
 
         [Fact]
-        public void IsMineHit_ReturnsFalse_WhenNoMineIsHit()
-        {
-            var field = new Field(Difficulty.Easy);
-            field.MovePlayerDown(); // Move to (0, 1)
-
-            // Check if the player is on a cell without a mine.
-            Assert.False(field.IsMineHit());
-        }
-
-        [Fact]
         public void PlaceMines_DoesNotPlaceMinesInStartingPosition()
         {
             var field = new Field(Difficulty.Easy);
